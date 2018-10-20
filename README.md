@@ -17,7 +17,7 @@ composer require techouse/select-auto-complete
 
 ## Usage
 
-The API is exactly the same as with [Nova's default `Select` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#field-types)
+The API is exactly the same as with [Nova's default `Select` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#select-field)
 
 Simply use `SelectAutoComplete` class instead of `Select` directly or alias it like the example below so you won't have to refactor too much existing code.
 
