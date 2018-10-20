@@ -46,10 +46,6 @@
              */
             fill(formData) {
                 formData.append(this.field.attribute, this.value)
-            },
-
-            focused(event) {
-                console.log(event)
             }
         },
     }
