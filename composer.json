@@ -1,0 +1,42 @@
+{
+    "name": "techouse/select-auto-complete",
+    "description": "An auto-completing Laravel Nova search field.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "select",
+        "search",
+        "auto complete",
+        "autocomplete",
+        "suggest",
+        "drop down",
+        "dropdown"
+    ],
+    "authors": [
+        {
+            "name": "Klemen Tušar",
+            "email": "techouse@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Techouse\\SelectAutoComplete\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Techouse\\SelectAutoComplete\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

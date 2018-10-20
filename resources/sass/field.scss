@@ -1,0 +1,29 @@
+.modal {
+  .overflow-hidden {
+    overflow: visible !important;
+  }
+
+  .select-auto-complete {
+    &.form-select {
+      padding-left: 0;
+      padding-right: 0;
+
+      &:focus,
+      &:active,
+      &.active {
+        outline: none;
+        -webkit-box-shadow: 0 0 8px var(--primary);
+        box-shadow: 0 0 8px var(--primary);
+      }
+    }
+
+    .single-select-wrapper {
+      .search-input {
+        border-width: 0;
+        border-color: transparent;
+        border-radius: .5em;
+        padding: .32em .75em;
+      }
+    }
+  }
+}
