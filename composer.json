@@ -20,7 +20,9 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.1.0",
+        "illuminate/support": "^5.6",
+        "laravel/nova": "*"
     },
     "autoload": {
         "psr-4": {
