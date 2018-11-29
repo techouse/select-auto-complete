@@ -12,8 +12,8 @@
     "devDependencies": {
         "cross-env": "^5.0.0",
         "laravel-mix": "^1.0",
-        "laravel-nova": "^1.0",
-        "vue-single-select": "^1.0.23"
+        "laravel-nova": "^1.0.5",
+        "vue-single-select": "^1.0.29"
     },
     "dependencies": {
         "vue": "^2.5.0"
