@@ -1,5 +1,8 @@
 # Select Auto-Complete
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/techouse/select-auto-complete.svg?style=flat-square)](https://packagist.org/packages/techouse/select-auto-complete)
+[![Total Downloads](https://img.shields.io/packagist/dt/techouse/select-auto-complete.svg?style=flat-square)](https://packagist.org/packages/techouse/select-auto-complete)
+
 ##### An auto-completing Laravel Nova search field.
 
 Provides a capability of auto-completed searching for results inside a select input field.
