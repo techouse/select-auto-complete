@@ -6,7 +6,7 @@
                                :options="field.options"
                                :class="errorClasses"
                                :placeholder="__('Choose an option')"
-                               class="select-auto-complete w-full form-control form-select"
+                               class="select-auto-complete w-full form-control"
                                option-key="value"
                                option-label="label"/>
         </template>
