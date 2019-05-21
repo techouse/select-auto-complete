@@ -1,5 +1,6 @@
-.modal, .card {
-  &.overflow-hidden {
+.modal,
+.card {
+  .overflow-hidden {
     overflow: visible !important;
   }
 }
