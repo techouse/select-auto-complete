@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field" :errors="errors">
+    <default-field :ref="refName" :field="field" :errors="errors">
         <template slot="field">
             <vue-single-select v-model="item"
                                :id="field.attribute"
@@ -24,6 +24,7 @@
 
         data() {
             return {
+                refName: 'select_auto_complete',
                 item: null
             }
         },
@@ -46,7 +47,42 @@
              */
             fill(formData) {
                 formData.append(this.field.attribute, this.value)
+            },
+
+            /**
+             * Laravel Nova adds a nasty overflow-hidden class to multiple containers
+             * which renders this extension pretty much useless therefore the class
+             * must be removed from the container of this select field.
+             */
+            removeOverflowHiddenFromContainer() {
+                const classes = [
+                    /**
+                     * The sequence is important!
+                     */
+                    'form',
+                    '.modal',
+                    '.card'
+                ]
+
+                for (let class_ of classes) {
+                    const container = this.$refs[this.refName].$el.closest(class_)
+                    if (container) {
+                        if (container.classList.contains('overflow-hidden')) {
+                            container.classList.remove('overflow-hidden')
+                        }
+                        if (container.classList.contains('overflow-x-hidden')) {
+                            container.classList.remove('overflow-x-hidden')
+                        }
+                        if (container.classList.contains('overflow-y-hidden')) {
+                            container.classList.remove('overflow-y-hidden')
+                        }
+                    }
+                }
             }
         },
+
+        mounted() {
+            this.removeOverflowHiddenFromContainer()
+        }
     }
 </script>
