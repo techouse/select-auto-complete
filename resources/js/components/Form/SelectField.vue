@@ -7,6 +7,8 @@
                                :class="errorClasses"
                                :placeholder="__('Choose an option')"
                                :required="field.required"
+                               :max-results="field.maxResults"
+                               :max-height="field.maxHeight"
                                class="select-auto-complete w-full form-control form-select"
                                option-key="value"
                                option-label="label"/>
@@ -19,14 +21,19 @@
     import {FormField, HandlesValidationErrors} from 'laravel-nova'
 
     export default {
-        components: {VueSingleSelect},
+        components: {
+            VueSingleSelect
+        },
 
-        mixins: [HandlesValidationErrors, FormField],
+        mixins: [
+            HandlesValidationErrors,
+            FormField
+        ],
 
         data() {
             return {
                 refName: 'select_auto_complete',
-                item: null
+                item:    null
             }
         },
 

@@ -2,6 +2,7 @@
 
 namespace Techouse\SelectAutoComplete;
 
+use Exception;
 use Laravel\Nova\Fields\Select;
 
 class SelectAutoComplete extends Select
@@ -18,24 +19,71 @@ class SelectAutoComplete extends Select
      */
     public $required = false;
 
+    public $maxResults = 30;
+
+    public $maxHeight = '220px';
+
+    /**
+     * SelectAutoComplete constructor.
+     * @param               $name
+     * @param null          $attribute
+     * @param callable|null $resolveCallback
+     */
     public function __construct($name, $attribute = null, callable $resolveCallback = null)
     {
         parent::__construct($name, $attribute, $resolveCallback);
 
-        return $this->withMeta(['required' => $this->required]);
+        $this->withMeta(['required'   => $this->required,
+                         'maxResults' => (int)$this->maxResults ?: 30,
+                         'maxHeight'  => $this->maxHeight]);
     }
 
+    /**
+     * @param null $default
+     * @return mixed
+     */
     public function defaultValue($default = null)
     {
         if ($default !== null) {
-            return $this->withMeta([__FUNCTION__ => $default]);
+            return $this->withMeta(['value' => $default]);
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function required()
     {
         $this->required = true;
 
-        return $this->withMeta(['required' => $this->required]);
+        return $this->withMeta([__FUNCTION__ => $this->required]);
+    }
+
+    /**
+     * @param int $maxResults
+     * @return mixed
+     * @throws \Exception
+     */
+    public function maxResults(int $maxResults)
+    {
+        if ($maxResults > 0) {
+            $this->maxResults = $maxResults;
+
+            return $this->withMeta([__FUNCTION__ => $this->maxResults]);
+        }
+        throw new Exception('Max results value has to be a positive interge!');
+    }
+
+    /**
+     * @param string $maxHeight
+     * @return mixed
+     */
+    public function maxHeight(string $maxHeight)
+    {
+        if ($maxHeight) {
+            $this->maxHeight = trim($maxHeight);
+
+            return $this->withMeta([__FUNCTION__ => $this->maxHeight]);
+        }
     }
 }
