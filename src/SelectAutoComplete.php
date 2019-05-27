@@ -42,10 +42,10 @@ class SelectAutoComplete extends Select
      * @param null $default
      * @return mixed
      */
-    public function defaultValue($default = null)
+    public function default($default = null)
     {
         if ($default !== null) {
-            return $this->withMeta(['value' => $default]);
+            return $this->withMeta([__FUNCTION__ => $default]);
         }
     }
 

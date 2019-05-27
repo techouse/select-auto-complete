@@ -45,6 +45,18 @@
             }
         },
 
+        created() {
+            if (this.field.value) {
+                this.$set(this, 'item', this.field.options.find(el => el.value == this.field.value))
+                this.$set(this, 'value', this.field.value)
+            } else {
+                if (this.field.default) {
+                    this.$set(this, 'item', this.field.options.find(el => el.value == this.field.default))
+                    this.$set(this, 'value', this.field.defaultValue)
+                }
+            }
+        },
+
         methods: {
             /**
              * Provide a function that fills a passed FormData object with the
