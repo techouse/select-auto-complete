@@ -23,6 +23,8 @@ class SelectAutoComplete extends Select
 
     public $maxHeight = '220px';
 
+    public $displayUsingLabels = false;
+
     /**
      * SelectAutoComplete constructor.
      * @param               $name
@@ -85,5 +87,17 @@ class SelectAutoComplete extends Select
 
             return $this->withMeta([__FUNCTION__ => $this->maxHeight]);
         }
+    }
+
+    /**
+     * Display values using their corresponding specified labels.
+     *
+     * @return $this
+     */
+    public function displayUsingLabels()
+    {
+        $this->displayUsingLabels = true;
+
+        return $this->withMeta([__FUNCTION__ => $this->displayUsingLabels]);
     }
 }

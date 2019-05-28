@@ -9,9 +9,10 @@
                                :required="field.required"
                                :max-results="field.maxResults"
                                :max-height="field.maxHeight"
-                               class="select-auto-complete w-full form-control form-select"
-                               option-key="value"
-                               option-label="label"/>
+                               :get-option-description="getOptionDescription"
+                               :option-key="optionKey"
+                               :option-label="optionLabel"
+                               class="select-auto-complete w-full form-control form-select"/>
         </template>
     </default-field>
 </template>
@@ -32,8 +33,10 @@
 
         data() {
             return {
-                refName: 'select_auto_complete',
-                item:    null
+                refName:     'select_auto_complete',
+                item:        null,
+                optionKey:   'value',
+                optionLabel: 'label'
             }
         },
 
@@ -98,6 +101,24 @@
                         }
                     }
                 }
+            },
+
+            getOptionDescription(option) {
+                if (this.field.displayUsingLabels) {
+                    if (this.optionLabel) {
+                        return option[this.optionLabel]
+                    }
+                }
+                if (this.optionKey && this.optionLabel) {
+                    return option[this.optionKey] + " " + option[this.optionLabel]
+                }
+                if (this.optionLabel) {
+                    return option[this.optionLabel]
+                }
+                if (this.optionKey) {
+                    return option[this.optionKey]
+                }
+                return option
             }
         },
 
