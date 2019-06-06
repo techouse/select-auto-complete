@@ -1,7 +1,10 @@
 # Select Auto-Complete
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/techouse/select-auto-complete.svg?style=flat-square)](https://packagist.org/packages/techouse/select-auto-complete)
-[![Total Downloads](https://img.shields.io/packagist/dt/techouse/select-auto-complete.svg?style=flat-square)](https://packagist.org/packages/techouse/select-auto-complete)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/techouse/select-auto-complete.svg?style=flat)](https://packagist.org/packages/techouse/select-auto-complete)
+[![Total Downloads](https://img.shields.io/packagist/dt/techouse/select-auto-complete.svg?style=flat)](https://packagist.org/packages/techouse/select-auto-complete)
+[![Licence](https://img.shields.io/packagist/l/techouse/select-auto-complete.svg)](https://packagist.org/packages/techouse/select-auto-complete)
+[![PHP version](https://img.shields.io/packagist/php-v/techouse/select-auto-complete/dev-master.svg)](https://packagist.org/packages/techouse/select-auto-complete)
+
 
 ##### An auto-completing Laravel Nova search field.
 
