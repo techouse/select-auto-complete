@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import SelectedPanelItem from '../SelectedPanelItem'
+import SelectedPanelItem from "../SelectedPanelItem"
 
 export default {
-    props: ['resource', 'resourceName', 'resourceId', 'field'],
 
     components: {
         SelectedPanelItem
-    }
+    },
+    props: ["resource", "resourceName", "resourceId", "field"]
 }
 </script>

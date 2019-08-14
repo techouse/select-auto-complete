@@ -1,11 +1,11 @@
 <template>
-    <div v-if="field.asHtml" v-html="selectedValue"></div>
+    <div v-if="field.asHtml" v-html="selectedValue" />
     <span v-else class="whitespace-no-wrap">{{ selectedValue }}</span>
 </template>
 
 <script>
 export default {
-    props: ['resourceName', 'field'],
+    props: ["resourceName", "field"],
 
     computed: {
         selectedValue() {
