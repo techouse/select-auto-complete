@@ -10,7 +10,11 @@ export default {
     computed: {
         selectedValue() {
             if (typeof this.field["displayUsingLabels"] !== "undefined" && this.field["displayUsingLabels"] === true) {
-                return String(this.field.options.find(el => el.value === this.field.value).label)
+                const option = this.field.options.find(el => Number(el.value) === Number(this.field.value))
+                if (option) {
+                    return String(option.label)
+                }
+                return ""
             }
 
             return String(this.field.value)
