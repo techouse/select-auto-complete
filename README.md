@@ -5,6 +5,7 @@
 [![Licence](https://img.shields.io/packagist/l/techouse/select-auto-complete.svg)](https://packagist.org/packages/techouse/select-auto-complete)
 [![PHP version](https://img.shields.io/packagist/php-v/techouse/select-auto-complete/dev-master.svg)](https://packagist.org/packages/techouse/select-auto-complete)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/341fada481f84c1ca65b6c6890d65c8c)](https://www.codacy.com/manual/techouse/select-auto-complete?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=techouse/select-auto-complete&amp;utm_campaign=Badge_Grade)
+[![GitHub stars](https://img.shields.io/github/stars/techouse/select-auto-complete.svg?style=social&label=Star&maxAge=2592000)](https://github.com/techouse/select-auto-complete/stargazers)
 
 
 ##### An auto-completing Laravel Nova search field.
