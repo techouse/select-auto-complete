@@ -1,9 +1,5 @@
-import Index from "./components/Index"
-import Detail from "./components/Detail"
-import Form from "./components/Form"
-
 Nova.booting((Vue) => {
-    Vue.component("index-select-auto-complete", Index)
-    Vue.component("detail-select-auto-complete", Detail)
-    Vue.component("form-select-auto-complete", Form)
+    Vue.component("index-select-auto-complete", () => import(/* webpackChunkName: "index-select-auto-complete" */ "./components/Index"))
+    Vue.component("detail-select-auto-complete", () => import(/* webpackChunkName: "detail-select-auto-complete" */ "./components/Detail"))
+    Vue.component("form-select-auto-complete", () => import(/* webpackChunkName: "form-select-auto-complete" */ "./components/Form"))
 })
