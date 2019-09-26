@@ -10,9 +10,9 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=webpack.config.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.6.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-env": "^7.6.2",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
@@ -36,10 +36,10 @@
     "vue-loader": "^15.7.1",
     "vue-single-select": "^1.1.0",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.39.3",
-    "webpack-bundle-tracker": "^0.4.2-beta",
+    "webpack": "^4.41.0",
+    "webpack-bundle-tracker": "^0.4.3",
     "webpack-cli": "^3.3.8",
-    "webpack-manifest-plugin": "^2.0.4"
+    "webpack-manifest-plugin": "^2.1.2"
   },
   "dependencies": {
     "vue": "^2.6.10"
