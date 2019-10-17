@@ -17,8 +17,6 @@ class SelectAutoComplete extends Select
     /**
      * @var bool
      */
-    public $required = false;
-
     public $maxResults = 30;
 
     public $maxHeight = '220px';
@@ -35,8 +33,7 @@ class SelectAutoComplete extends Select
     {
         parent::__construct($name, $attribute, $resolveCallback);
 
-        $this->withMeta(['required'   => $this->required,
-                         'maxResults' => (int)$this->maxResults ?: 30,
+        $this->withMeta(['maxResults' => (int)$this->maxResults ?: 30,
                          'maxHeight'  => $this->maxHeight]);
     }
 

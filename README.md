@@ -26,7 +26,6 @@ composer require techouse/select-auto-complete
 ## Usage
 
 The API is extends [Nova's default `Select` Field](https://nova.laravel.com/docs/1.0/resources/fields.html#select-field) by adding these additional options:
-* __required__ - _OPTIONAL_ - Make the field required. Default is `false`.
 * __default__ - _OPTIONAL_ - Set the default __value__ in case of an empty field. Default is `null`.
 * __maxResults__ - _OPTIONAL_ - Number of results to show at a time. Has to be a positive __integer__. Default is `30`.
 * __maxHeight__ - _OPTIONAL_ - Height of select dropdown list. Default is `220px`.
