@@ -52,16 +52,6 @@ class SelectAutoComplete extends Select
     }
 
     /**
-     * @return mixed
-     */
-    public function required()
-    {
-        $this->required = true;
-
-        return $this->withMeta([__FUNCTION__ => $this->required]);
-    }
-
-    /**
      * @param int $maxResults
      * @return mixed
      * @throws \Exception
