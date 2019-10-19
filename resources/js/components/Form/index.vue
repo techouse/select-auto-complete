@@ -19,25 +19,25 @@
 </template>
 
 <script>
-    import VueSingleSelect                      from "vue-single-select"
-    import {FormField, HandlesValidationErrors} from "laravel-nova"
+    import VueSingleSelect                        from "vue-single-select"
+    import { FormField, HandlesValidationErrors } from "laravel-nova"
 
     export default {
         components: {
-            VueSingleSelect
+            VueSingleSelect,
         },
 
         mixins: [
             HandlesValidationErrors,
-            FormField
+            FormField,
         ],
 
         data() {
             return {
-                refName:     "select_auto_complete",
-                item:        null,
-                optionKey:   "value",
-                optionLabel: "label"
+                refName: "select_auto_complete",
+                item: null,
+                optionKey: "value",
+                optionLabel: "label",
             }
         },
 
@@ -46,18 +46,16 @@
                 if (current !== previous) {
                     this.$set(this, "value", current !== null && "value" in current ? current.value : "")
                 }
-            }
+            },
         },
 
         created() {
             if (this.field.value) {
-                this.$set(this, "item", this.field.options.find(el => el.value == this.field.value))
+                this.$set(this, "item", this.field.options.find((el) => String(el.value) === String(this.field.value)))
                 this.$set(this, "value", this.field.value)
-            } else {
-                if (this.field.default) {
-                    this.$set(this, "item", this.field.options.find(el => el.value == this.field.default))
-                    this.$set(this, "value", this.field.defaultValue)
-                }
+            } else if (this.field.default) {
+                this.$set(this, "item", this.field.options.find((el) => String(el.value) === String(this.field.default)))
+                this.$set(this, "value", this.field.defaultValue)
             }
         },
 
@@ -83,17 +81,11 @@
              * must be removed from the container of this select field.
              */
             removeOverflowHiddenFromContainer() {
-                const classes = [
-                    /**
-                     * The sequence is important!
-                     */
-                    "form",
-                    ".modal",
-                    ".card"
-                ]
-
-                for (let class_ of classes) {
-                    const container = this.$refs[this.refName].$el.closest(class_)
+                /**
+                 * The sequence is important!
+                 */
+                ["form", ".modal", ".card"].forEach((className) => {
+                    const container = this.$refs[this.refName].$el.closest(className)
                     if (container) {
                         if (container.classList.contains("overflow-hidden")) {
                             container.classList.remove("overflow-hidden")
@@ -105,7 +97,7 @@
                             container.classList.remove("overflow-y-hidden")
                         }
                     }
-                }
+                })
             },
 
             getOptionDescription(option) {
@@ -115,7 +107,7 @@
                     }
                 }
                 if (this.optionKey && this.optionLabel) {
-                    return option[this.optionKey] + " " + option[this.optionLabel]
+                    return `${option[this.optionKey]} ${option[this.optionLabel]}`
                 }
                 if (this.optionLabel) {
                     return option[this.optionLabel]
@@ -124,7 +116,7 @@
                     return option[this.optionKey]
                 }
                 return option
-            }
-        }
+            },
+        },
     }
 </script>

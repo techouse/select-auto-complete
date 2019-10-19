@@ -23,14 +23,14 @@
 
 <script>
     export default {
-        name:     "SelectedPanelItem",
-        props:    {
-            field:     {
-                type:     Object,
+        name: "SelectedPanelItem",
+        props: {
+            field: {
+                type: Object,
                 required: true,
             },
             fieldName: {
-                type:    String,
+                type: String,
                 default: "",
             },
         },
@@ -41,15 +41,15 @@
 
             fieldValue() {
                 if (
-                    this.field.value === "" ||
-                    this.field.value === null ||
-                    this.field.value === undefined
+                    this.field.value === ""
+                    || this.field.value === null
+                    || this.field.value === undefined
                 ) {
                     return false
                 }
 
-                if (typeof this.field["displayUsingLabels"] !== "undefined" && this.field["displayUsingLabels"] === true) {
-                    const option = this.field.options.find(el => Number(el.value) === Number(this.field.value))
+                if (typeof this.field.displayUsingLabels !== "undefined" && this.field.displayUsingLabels === true) {
+                    const option = this.field.options.find((el) => Number(el.value) === Number(this.field.value))
                     if (option) {
                         return String(option.label)
                     }
