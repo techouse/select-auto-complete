@@ -29,6 +29,7 @@ The API is extends [Nova's default `Select` Field](https://nova.laravel.com/docs
 * __default__ - _OPTIONAL_ - Set the default __value__ in case of an empty field. Default is `null`.
 * __maxResults__ - _OPTIONAL_ - Number of results to show at a time. Has to be a positive __integer__. Default is `30`.
 * __maxHeight__ - _OPTIONAL_ - Height of select dropdown list. Default is `220px`.
+* __displayUsingLabels__ - _OPTIONAL_ - List only the labels of the options list. Default is disabled and displays keys and labels.
 
 Simply use `SelectAutoComplete` class instead of `Select` directly or alias it like the example below so you won't have to refactor too much existing code.
 
@@ -81,11 +82,11 @@ class EmailAccountProfile extends Action
                   
             Select::make(__('Partner'), 'partner')
                   ->options(\App\User::all()->pluck('name', 'id'))
-                  ->displayUsingLabels()
-                  ->default(7)         // set the default to the User with the ID 7
-                  ->maxResults(5)      // limit the dropdown select to a max of 5 hits
-                  ->maxHeight('100px') // limit the dropdown to a max height of 100px
-                  ->required()         // make the field required
+                  ->displayUsingLabels() // display only the labels od the options list
+                  ->default(7)           // set the default to the User with the ID 7
+                  ->maxResults(5)        // limit the dropdown select to a max of 5 hits
+                  ->maxHeight('100px')   // limit the dropdown to a max height of 100px
+                  ->required()           // make the field required
         ];
     }
 }
