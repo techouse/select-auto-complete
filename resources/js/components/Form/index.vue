@@ -5,7 +5,7 @@
                                v-model="item"
                                :options="field.options"
                                :class="errorClasses"
-                               :placeholder="__('Choose an option')"
+                               :placeholder="placeholder"
                                :required="field.required"
                                :max-results="field.maxResults"
                                :max-height="field.maxHeight"
@@ -39,6 +39,12 @@
                 optionKey: "value",
                 optionLabel: "label",
             }
+        },
+
+        computed: {
+            placeholder() {
+                return this.field.placeholder || this.__("Choose an option")
+            },
         },
 
         watch: {

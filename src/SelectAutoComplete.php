@@ -23,6 +23,8 @@ class SelectAutoComplete extends Select
 
     public $displayUsingLabels = false;
 
+    public $placeholder = null;
+
     /**
      * SelectAutoComplete constructor.
      * @param               $name
@@ -86,5 +88,14 @@ class SelectAutoComplete extends Select
         $this->displayUsingLabels = true;
 
         return $this->withMeta([__FUNCTION__ => $this->displayUsingLabels]);
+    }
+
+    public function placeholder(string $placeholer)
+    {
+        if ($placeholer) {
+            $this->placeholder = trim($placeholer);
+
+            return $this->withMeta([__FUNCTION__ => $this->placeholder]);
+        }
     }
 }
