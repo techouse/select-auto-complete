@@ -90,7 +90,7 @@ class SelectAutoComplete extends Select
         return $this->withMeta([__FUNCTION__ => $this->displayUsingLabels]);
     }
 
-    public function placeholder(string $placeholer)
+    public function placeholder($placeholer)
     {
         if ($placeholer) {
             $this->placeholder = trim($placeholer);
