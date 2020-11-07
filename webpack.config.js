@@ -8,8 +8,7 @@ const path                    = require("path"),
       TerserPlugin            = require("terser-webpack-plugin"),
       ManifestPlugin          = require("webpack-manifest-plugin"),
       env                     = process.env.NODE_ENV,
-      npm_config_argv         = JSON.parse(process.env.npm_config_argv),
-      isWatch                 = npm_config_argv.remain.some(el => el.startsWith("--watch")),
+      isWatch                 = process.env.npm_lifecycle_event === "watch",
       sourceMap               = env !== "production",
       production              = env === "production",
       webpack                 = require("webpack")
@@ -58,7 +57,6 @@ const config = {
                 use:  [
                     {
                         loader:  MiniCssExtractPlugin.loader,
-                        options: {sourceMap}
                     },
                     {
                         loader:  "css-loader",
@@ -89,7 +87,6 @@ const config = {
         new VueLoaderPlugin(),
         new CleanWebpackPlugin({cleanStaleWebpackAssets: !isWatch}),
         new MiniCssExtractPlugin({
-            path:          outputPath + "/css",
             filename:      "css/[name].css",
             chunkFilename: "css/[name].css"
         }),
