@@ -16,7 +16,7 @@
                 class="select-auto-complete w-full form-control form-select"
             >
                 <template slot="option" slot-scope="{option}">
-                    {{ option.label }}
+                    {{ getOptionDescription(option) }}
                 </template>
             </vue-single-select>
         </template>
