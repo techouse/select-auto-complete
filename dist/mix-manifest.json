@@ -1,10 +1,9 @@
 {
-  "detail-select-auto-complete.js": "/nova-vendor/select-auto-complete/js/detail-select-auto-complete.js",
   "field.css": "/nova-vendor/select-auto-complete/css/field.css",
   "field.js": "/nova-vendor/select-auto-complete/js/field.js",
-  "form-select-auto-complete.js": "/nova-vendor/select-auto-complete/js/form-select-auto-complete.js",
   "index-select-auto-complete.js": "/nova-vendor/select-auto-complete/js/index-select-auto-complete.js",
-  "vendors~form-select-auto-complete.css": "/nova-vendor/select-auto-complete/css/vendors~form-select-auto-complete.css",
-  "vendors~form-select-auto-complete.js": "/nova-vendor/select-auto-complete/js/vendors~form-select-auto-complete.js",
-  "js/vendors~form-select-auto-complete.js.LICENSE.txt": "/nova-vendor/select-auto-complete/js/vendors~form-select-auto-complete.js.LICENSE.txt"
+  "detail-select-auto-complete.js": "/nova-vendor/select-auto-complete/js/detail-select-auto-complete.js",
+  "form-select-auto-complete.css": "/nova-vendor/select-auto-complete/css/form-select-auto-complete.css",
+  "form-select-auto-complete.js": "/nova-vendor/select-auto-complete/js/form-select-auto-complete.js",
+  "js/989.js": "/nova-vendor/select-auto-complete/js/989.js"
 }

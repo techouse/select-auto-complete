@@ -3,14 +3,13 @@
 </template>
 
 <script>
-    import SelectedPanelItem from "../SelectedPanelItem"
+import SelectedPanelItem from "../SelectedPanelItem"
 
-    export default {
-
-        components: {
-            SelectedPanelItem,
-        },
-        // eslint-disable-next-line vue/require-prop-types
-        props: ["resource", "resourceName", "resourceId", "field"],
-    }
+export default {
+  components: {
+    SelectedPanelItem,
+  },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ["resource", "resourceName", "resourceId", "field"],
+}
 </script>

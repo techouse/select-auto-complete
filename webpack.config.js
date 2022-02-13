@@ -1,80 +1,77 @@
-const path                    = require("path"),
-      outputPath              = path.resolve(__dirname, "dist"),
-      {CleanWebpackPlugin}    = require("clean-webpack-plugin"),
-      MiniCssExtractPlugin    = require("mini-css-extract-plugin"),
-      Fiber                   = require("fibers"),
-      {VueLoaderPlugin}       = require("vue-loader"),
-      OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-      TerserPlugin            = require("terser-webpack-plugin"),
-      ManifestPlugin          = require("webpack-manifest-plugin"),
-      env                     = process.env.NODE_ENV,
-      isWatch                 = process.env.npm_lifecycle_event === "watch",
-      sourceMap               = env !== "production",
-      production              = env === "production",
-      webpack                 = require("webpack")
+const path                      = require("path"),
+      outputPath                = path.resolve(__dirname, "dist"),
+      { CleanWebpackPlugin }    = require("clean-webpack-plugin"),
+      MiniCssExtractPlugin      = require("mini-css-extract-plugin"),
+      { VueLoaderPlugin }       = require("vue-loader"),
+      CssMinimizerPlugin        = require("css-minimizer-webpack-plugin"),
+      TerserPlugin              = require("terser-webpack-plugin"),
+      { WebpackManifestPlugin } = require("webpack-manifest-plugin"),
+      env                       = process.env.NODE_ENV,
+      isWatch                   = process.env.npm_lifecycle_event === "watch",
+      sourceMap                 = env !== "production",
+      production                = env === "production",
+      webpack                   = require("webpack")
 
 const config = {
-    mode:         env,
-    target:       "web",
-    entry:        {
+    mode: env,
+    target: "web",
+    entry: {
         field: [
             "./resources/js/field.js",
             "./resources/sass/field.scss"
         ]
     },
-    output:       {
-        path:          outputPath,
-        publicPath:    "/nova-vendor/select-auto-complete/",
-        filename:      "js/[name].js",
+    output: {
+        path: outputPath,
+        publicPath: "/nova-vendor/select-auto-complete/",
+        filename: "js/[name].js",
         chunkFilename: "js/[name].js",
-        jsonpFunction: "wpJsonpSelectAutoComplete"
     },
     optimization: {},
-    resolve:      {
-        alias:      {
+    resolve: {
+        alias: {
             "vue$": "vue/dist/vue.esm.js"
         },
         extensions: ["*", ".js", ".vue", ".json"],
-        modules:    ["./node_modules",
-                     "./resources/js/components",]
+        modules: ["./node_modules",
+                  "./resources/js/components",]
     },
-    stats:        {
+    stats: {
         colors: true
     },
-    devtool:      sourceMap ? "cheap-module-eval-source-map" : undefined,
-    module:       {
+    devtool: sourceMap ? "eval-cheap-module-source-map" : undefined,
+    module: {
         rules: [
             {
-                test:    /\.m?js$/,
-                loader:  "babel-loader"
+                test: /\.m?js$/,
+                loader: "babel-loader"
             },
             {
-                test:    /\.vue$/,
-                loader:  "vue-loader"
+                test: /\.vue$/,
+                loader: "vue-loader"
             },
             {
                 test: /\.(sa|sc|c)ss$/i,
-                use:  [
+                use: [
                     {
-                        loader:  MiniCssExtractPlugin.loader,
+                        loader: MiniCssExtractPlugin.loader,
                     },
                     {
-                        loader:  "css-loader",
+                        loader: "css-loader",
                         options: {
                             sourceMap,
                             importLoaders: 2
                         }
                     },
-                    {loader: "postcss-loader", options: {sourceMap}},
-                    "resolve-url-loader",
+                    { loader: "postcss-loader", options: { sourceMap } },
+                    { loader: "resolve-url-loader", options: { sourceMap } },
                     {
-                        loader:  "sass-loader",
+                        loader: "sass-loader",
                         options: {
                             sourceMap,
                             implementation: require("sass"),
-                            sassOptions:    {
-                                fiber:        Fiber,
-                                indentWidth:  4,
+                            sassOptions: {
+                                indentWidth: 4,
                                 includePaths: [path.resolve(__dirname, "resources/scss")],
                             },
                         }
@@ -82,15 +79,15 @@ const config = {
             }
         ]
     },
-    plugins:      [
+    plugins: [
         new webpack.ProgressPlugin(),
         new VueLoaderPlugin(),
-        new CleanWebpackPlugin({cleanStaleWebpackAssets: !isWatch}),
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: !isWatch }),
         new MiniCssExtractPlugin({
-            filename:      "css/[name].css",
+            filename: "css/[name].css",
             chunkFilename: "css/[name].css"
         }),
-        new ManifestPlugin({
+        new WebpackManifestPlugin({
             fileName: "mix-manifest.json"
         })
     ]
@@ -98,10 +95,10 @@ const config = {
 
 if (production) {
     config.optimization.minimizer = [
-        new OptimizeCSSAssetsPlugin(),
+        new CssMinimizerPlugin(),
         new TerserPlugin({
-            cache:    true,
             parallel: true,
+            extractComments: true,
         }),
     ]
 }
